@@ -15,8 +15,20 @@ public class ItemParser {
 
     public List<Item> parseItemList(String valueToParse) {
         List<Item> itemList = new ArrayList<>();
+        String[] values = valueToParse.split("##");
+        int countException = 0;
+            for (String s :values) {
+                try {
+                    itemList.add(parseSingleItem(s));
+                } catch (Exception ex) {
+                    countException++;
+                    System.out.println(ex.getMessage());
 
-        return itemList;
+                }
+        }
+
+return itemList;
+
     }
 
     public Item parseSingleItem(String singleItem) throws ItemParseException {
