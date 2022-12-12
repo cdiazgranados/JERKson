@@ -43,6 +43,20 @@ public class MatchGroupTest {
     }
 
     @Test
+    public void myTest_toString2() {
+        String text = "naMe:Milk;price:3.23;type:Food;expiration:1/25/2016##";
+        String patternString = "\\w+";
+        Pattern pattern = Pattern.compile(patternString);
+        Matcher matcher = pattern.matcher(text);
+        MatchGroup matchGroup = new MatchGroup(matcher);
+
+        // when
+        String actual = matchGroup.get(2).getValue();
+        System.out.println(actual);
+
+    }
+
+    @Test
     public void getTest0() {
         String expected = "The";
         String text = "The Quick Brown Fox";

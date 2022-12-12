@@ -26,7 +26,6 @@ public class ItemParser {
 
                 }
         }
-
 return itemList;
 
     }
@@ -39,26 +38,17 @@ return itemList;
         MatchGroup matchGroup = new MatchGroup(matcher);
 
         try {
-            Match nameMatch = matchGroup.get(1);
-            String nameString = nameMatch.getValue().toLowerCase(Locale.ROOT); //changed
-            Match priceMatch1 = matchGroup.get(3);
-            String priceMatch1String = priceMatch1.getValue();
-            Match priceMatch2 = matchGroup.get(4);
-            String priceMatch2String = priceMatch2.getValue();
-            Match valueMatch = matchGroup.get(6);
-            String valueString = valueMatch.getValue().toLowerCase();
-            Match ex1 = matchGroup.get(8);
-            String ex1String = ex1.getValue();
-            Match ex2 = matchGroup.get(9);
-            String ex2String = ex2.getValue();
-            Match ex3 = matchGroup.get(10);
-            String ex3String = ex3.getValue();
+            String nameString = matchGroup.get(1).getValue().toLowerCase();
+            String priceMatch1 = matchGroup.get(3).getValue();
+            String priceMatch2 = matchGroup.get(4).getValue();
+            String valueMatch = matchGroup.get(6).getValue().toLowerCase();
+            String ex1 = matchGroup.get(8).getValue();
+            String ex2 = matchGroup.get(9).getValue();
+            String ex3 = matchGroup.get(10).getValue();
 
-            String decimalString = priceMatch1String + "." + priceMatch2String;
-            double decimal = Double.parseDouble(decimalString);
+            double decimal = Double.parseDouble(priceMatch1 + "." + priceMatch2);
 
-
-            return new Item(nameString, decimal, valueString, ex1String + "/" + ex2String + "/" + ex3String); //Todo: change params
+            return new Item(nameString, decimal, valueMatch, ex1 + "/" + ex2 + "/" + ex3);
 
         } catch(Exception ex) {
             System.out.println(ex.getMessage());
@@ -69,14 +59,6 @@ return itemList;
     }
 
 
-    //original
-//    public List<Item> parseItemList(String valueToParse) {
-//        return null;
-//    }
-//
-//    public Item parseSingleItem(String singleItem) throws ItemParseException {
-//        return null;
-//    }
 
 
 
