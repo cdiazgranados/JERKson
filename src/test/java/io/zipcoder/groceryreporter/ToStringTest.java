@@ -14,7 +14,7 @@ public class ToStringTest {
         GroceryReporter reporter = new GroceryReporter(fileName);
 
         // when
-        String actual = reporter.toString();
+        String actual = reporter.toString(); //returns null and is supposed to look like Expected Output
 
         // then
         Assert.assertEquals(expected, actual);

@@ -34,7 +34,7 @@ public class MatchGroup implements Iterable<Match> {
     }
 
     private void initializeMatchers() {
-        for (int i = 0; matcher.find(); i++) {
+        for (int i = 0; matcher.find(); i++) { //does matcher.find() return a boolean? perhaps this class allows it to iterate
             matchList.add(new MatchBuilder()
                     .setStartingIndex(matcher.start())
                     .setEndingIndex(matcher.end())

@@ -8,12 +8,12 @@ public class MatchBuilder {
 
     MatchBuilder setValue(String value) {
         this.value = value;
-        return this;
+        return this; //?
     }
 
     public MatchBuilder setMatchNumber(Integer matchNumber) {
         this.matchNumber = matchNumber;
-        return this;
+        return this; //?
     }
 
     public MatchBuilder setStartingIndex(Integer startingIndex) {

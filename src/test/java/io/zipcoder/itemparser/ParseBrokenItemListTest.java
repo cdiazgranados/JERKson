@@ -17,7 +17,7 @@ public class ParseBrokenItemListTest {
         ItemParser itemParser = new ItemParser();
         String valueToParse = new StringBuilder()
                 .append("naMe:Milk;price:3.23;type:Food;expiration:1/25/2016##")
-                .append("procrastintion is the assassination of motivation##")
+                .append("procrastintion is the assassination of motivation##") //contain strings that you can not parse
                 .append("NAMe:BrEAD;price:1.23;type:Food;expiration:2/25/2016##")
                 .toString();
         List<Item> expectedList = Arrays.asList(

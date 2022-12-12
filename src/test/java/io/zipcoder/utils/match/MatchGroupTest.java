@@ -23,8 +23,23 @@ public class MatchGroupTest {
 
         // when
         String actual = matchGroup.toString();
+        System.out.println(actual);
 
         Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void myTest_toString() {
+        String text = "naMe:Milk;price:3.23;type:Food;expiration:1/25/2016##";
+        String patternString = "\\w+";
+        Pattern pattern = Pattern.compile(patternString);
+        Matcher matcher = pattern.matcher(text);
+        MatchGroup matchGroup = new MatchGroup(matcher);
+
+        // when
+        String actual = matchGroup.toString();
+        System.out.println(actual);
+
     }
 
     @Test
@@ -40,6 +55,7 @@ public class MatchGroupTest {
         // when
         Match actualMatch = matchGroup.get(0);
         String actualString = actualMatch.getValue();
+        System.out.println(actualString);
 
         Assert.assertEquals(expected, actualString);
     }
@@ -58,6 +74,7 @@ public class MatchGroupTest {
         // when
         Match actualMatch = matchGroup.get(1);
         String actualString = actualMatch.getValue();
+        System.out.println(actualString);
 
         Assert.assertEquals(expected, actualString);
     }
@@ -78,6 +95,46 @@ public class MatchGroupTest {
         // when
         Match actualMatch = matchGroup.get(2);
         String actualString = actualMatch.getValue();
+        System.out.println(actualString);
+
+        Assert.assertEquals(expected, actualString);
+    }
+
+    @Test
+    public void myTest_JerkSon() {
+        String expected = "price";
+        String text = "naMe:Milk;price:3.23;type:Food;expiration:1/25/2016##";
+        String patternString = "\\w+";
+
+        Pattern pattern = Pattern.compile(patternString);
+        Matcher matcher = pattern.matcher(text);
+        MatchGroup matchGroup = new MatchGroup(matcher);
+
+        // when
+        Match actualMatch = matchGroup.get(2);
+        String actualString = actualMatch.getValue();
+        System.out.println(actualString);
+
+        Assert.assertEquals(expected, actualString);
+    }
+
+    @Test
+    public void generateStringBuilderTest() {
+        String expected = "Brown";
+        String text = "The Quick Brown Fox";
+        String patternString = "\\w+";
+
+        Pattern pattern = Pattern.compile(patternString);
+        Matcher matcher = pattern.matcher(text);
+        MatchGroup matchGroup = new MatchGroup(matcher);
+
+        String test = generateStringBuilder(matchGroup);
+        System.out.println(test);
+
+        // when
+        Match actualMatch = matchGroup.get(2);
+        String actualString = actualMatch.getValue();
+        System.out.println(actualString);
 
         Assert.assertEquals(expected, actualString);
     }
