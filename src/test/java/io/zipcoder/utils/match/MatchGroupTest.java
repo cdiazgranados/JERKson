@@ -148,7 +148,6 @@ public class MatchGroupTest {
         // when
         Match actualMatch = matchGroup.get(2);
         String actualString = actualMatch.getValue();
-        System.out.println(actualString);
 
         Assert.assertEquals(expected, actualString);
     }

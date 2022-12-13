@@ -12,17 +12,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ItemParser {
-
+    int countException = 0;
     public List<Item> parseItemList(String valueToParse) {
         List<Item> itemList = new ArrayList<>();
         String[] values = valueToParse.split("##");
-        int countException = 0;
+
             for (String s :values) {
                 try {
                     itemList.add(parseSingleItem(s));
                 } catch (Exception ex) {
                     countException++;
-                    System.out.println(ex.getMessage());
+//                    System.out.println(ex.getMessage());
 
                 }
         }
@@ -51,7 +51,7 @@ return itemList;
             return new Item(nameString, decimal, valueMatch, ex1 + "/" + ex2 + "/" + ex3);
 
         } catch(Exception ex) {
-            System.out.println(ex.getMessage());
+//            System.out.println(ex.getMessage());
             throw new ItemParseException();
         }
         }
